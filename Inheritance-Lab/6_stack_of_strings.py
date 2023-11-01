@@ -16,7 +16,10 @@ class Stack:
         return self.data[-1]
 
     def is_empty(self):
-        return any(self.data)
+        if self.data:
+            return False
+        else:
+            return True
 
     def __str__(self):
         reverse = reversed(self.data)
