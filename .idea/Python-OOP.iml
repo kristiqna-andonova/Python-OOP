@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/Classes and Objects-Exercise/5_to_do" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Classes and Objects-Exercise/6_guild_system" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Inheritance-Lab" isTestSource="false" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
