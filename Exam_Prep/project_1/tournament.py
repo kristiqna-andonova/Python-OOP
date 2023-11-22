@@ -20,10 +20,9 @@ class Tournament:
 
     @name.setter
     def name(self, value):
-        if not value.isdigit():
+        if not value.isalnum():
             raise ValueError("Tournament name should contain letters and digits only!")
-        else:
-            self.__name = value
+        self.__name = value
 
     def add_equipment(self, equipment_type: str):
         if equipment_type not in self.EQUIPMENT_TYPES:
@@ -63,19 +62,36 @@ class Tournament:
         return f"Successfully removed {team_name}."
 
     def increase_equipment_price(self, equipment_type: str):
-        increased_price = len([el.increase_price for el in self.equipment if el.__class.__name__ == equipment_type])
+        increased_price = len([el.increase_price for el in self.equipment if el.__class__.__name__ == equipment_type])
         return f"Successfully changed {increased_price}pcs of equipment."
 
     def play(self, team_name1: str, team_name2: str):
         team1 = self._find_team_by_name(team_name1)
         team2 = self._find_team_by_name(team_name2)
 
-        if team1.__class.__name__ != team2.__class__.__name__:
+        if team1.__class__.__name__ != team2.__class__.__name__:
             raise Exception("Game cannot start! Team types mismatch!")
-        
+
+        team1_points = team1.sum_points()
+        team2_points = team2.sum_points()
+        if team1_points > team2_points:
+            team1.win()
+            return f"The winner is {team1.name}."
+        if team1_points < team2_points:
+            team2.win()
+            return f"The winner is {team2.name}."
+        return "No winner in this game."
+
+    def get_statistics(self):
+        sorted_teams = sorted(self.teams, key=lambda t: -t.wins)
+        result = [f"""Tournament: {self.name}
+Number of Teams: {len(self.teams)}
+Teams:"""]
+        [result.append(t.get_statistics()) for t in sorted_teams]
+        return '\n'.join(result)
 
     def _find_last_equipment_by_type(self, equipment_type):
-        collection = [eq for eq in self.equipment if eq.TYPE_ == equipment_type]
+        collection = [eq for eq in self.equipment if eq.__class__.__name__ == equipment_type]
         return collection[-1] if collection else None
 
     def _find_team_by_name(self, team_name):
