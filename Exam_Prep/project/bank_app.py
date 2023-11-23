@@ -1,9 +1,7 @@
-from typing import List
-
-from clients.adult import Adult
-from clients.student import Student
-from loans.mortgage_loan import MortgageLoan
-from loans.student_loan import StudentLoan
+from project.
+from project.clients.student import Student
+from project.loans.mortgage_loan import MortgageLoan
+from project.loans.student_loan import StudentLoan
 
 
 class BankApp:

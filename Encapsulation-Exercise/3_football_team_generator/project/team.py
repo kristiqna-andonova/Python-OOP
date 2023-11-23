@@ -1,4 +1,4 @@
-from project.player import Player
+from project_d.player import Player
 
 
 class Team:

@@ -1,4 +1,4 @@
-from project.product import Product
+from project_d.product import Product
 
 
 class ProductRepository:

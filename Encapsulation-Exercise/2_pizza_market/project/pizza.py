@@ -1,6 +1,6 @@
-from project.dough import Dough
-from project.topping import Topping
-from project.validation.validation import Validation
+from project_d.dough import Dough
+from project_d.topping import Topping
+from project_d.validation.validation import Validation
 
 
 class Pizza:

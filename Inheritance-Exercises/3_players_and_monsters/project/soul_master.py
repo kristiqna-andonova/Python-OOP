@@ -1,4 +1,4 @@
-from project.dark_wizard import DarkWizard
+from project_d.dark_wizard import DarkWizard
 
 
 class SoulMaster(DarkWizard):

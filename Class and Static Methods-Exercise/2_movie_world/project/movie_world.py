@@ -1,7 +1,7 @@
 from typing import List
 
-from project.customer import Customer
-from project.dvd import DVD
+from project_d.customer import Customer
+from project_d.dvd import DVD
 
 
 class MovieWorld:

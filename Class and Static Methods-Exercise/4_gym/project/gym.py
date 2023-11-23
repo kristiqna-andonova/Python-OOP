@@ -1,10 +1,10 @@
 from typing import List
 
-from project.customer import Customer
-from project.equipment import Equipment
-from project.exercise_plan import ExercisePlan
-from project.subscription import Subscription
-from project.trainer import Trainer
+from project_d.customer import Customer
+from project_d.equipment import Equipment
+from project_d.exercise_plan import ExercisePlan
+from project_d.subscription import Subscription
+from project_d.trainer import Trainer
 
 
 class Gym:
