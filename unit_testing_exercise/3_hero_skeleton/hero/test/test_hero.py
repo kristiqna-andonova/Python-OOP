@@ -45,7 +45,40 @@ class HeroTest(TestCase):
             self.hero.battle(enemy)
         self.assertEqual("You cannot fight Test Enemy. He needs to rest", str(ex1.exception))
 
-        def 
+    def test_draw(self):
+        enemy = Hero("Test Enemy", 8, 100.1, 56.0)
+
+        result = self.hero.battle(enemy)
+        self.assertEqual("Draw", result)
+        self.assertEqual(8, self.hero.level)
+        self.assertEqual(-347.9, self.hero.health)
+        self.assertEqual(56.0, self.hero.damage)
+
+    def test_win(self):
+        enemy = Hero("Test Enemy", 1, 1, 1)
+
+        result = self.hero.battle(enemy)
+        self.assertEqual("You win", result)
+        self.assertEqual(9, self.hero.level)
+        self.assertEqual(104.1, self.hero.health)
+        self.assertEqual(61.0, self.hero.damage)
+
+    def test_lost(self):
+        self.hero.health = 10
+        self.hero.damage = 10
+
+        enemy = Hero("Test Enemy", 100, 100, 100)
+        result = self.hero.battle(enemy)
+        self.assertEqual("You lose", result)
+        self.assertEqual(101, enemy.level)
+        self.assertEqual(25, enemy.health)
+        self.assertEqual(105, enemy.damage)
+
+    def test_str(self):
+        result = f"Hero Test: 8 lvl\n" \
+               f"Health: 100.1\n" \
+               f"Damage: 56.0\n"
+        self.assertEqual(result, str(self.hero))
 
 
 if __name__ == '__main__':
