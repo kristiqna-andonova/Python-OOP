@@ -27,7 +27,7 @@ class StudentTest(TestCase):
         self.assertEqual({"Python": ["n1", "n2", "n4", "n5", "n8", "n9"], "JS": ["n1", "n2"]},
                          self.student.courses)
 
-    def test_with_none_existing_course_with_y(self):
+    def test_with_none_existing_course_with_yes(self):
         result = self.student.enroll("C#", ["n1", "n2"], add_course_notes="Y")
 
         self.assertTrue("C#" in self.student.courses)
